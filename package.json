@@ -4,7 +4,8 @@
   "description": "Learn Basic of Node Express Server and Git &amp; Github by creating Pull Request in this repository.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "start:dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -26,5 +27,9 @@
   "homepage": "https://github.com/NetScape-Web/hacktoberfest-express-server-2022#readme",
   "dependencies": {
     "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }
+
