@@ -1,5 +1,10 @@
 import express from "express";
-import { userLogin, userRegistration } from "../controllers/userController.js";
+import {
+  changeUserPassword,
+  userLogin,
+  userRegistration,
+} from "../controllers/userController.js";
+import isValidUser from "../middlewares/authMiddleware.js";
 
 const router = express.Router();
 
@@ -13,5 +18,8 @@ router.get("/", (req, res, next) => {
 
 router.post("/register", userRegistration);
 router.post("/login", userLogin);
+
+// Protected Routes
+router.post("/changepassword", isValidUser, changeUserPassword);
 
 export default router;

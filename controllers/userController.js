@@ -89,4 +89,28 @@ const userLogin = async (req, res) => {
   }
 };
 
-export { userRegistration, userLogin };
+const changeUserPassword = async (req, res) => {
+  const { password, cpassword } = req.body;
+  if (password && cpassword) {
+    if (password !== cpassword) {
+      res.send({
+        status: "failed",
+        message: "New Password and Confirm New Password doesn't match",
+      });
+    } else {
+      const salt = await bcrypt.genSalt(10);
+      const newHashPassword = await bcrypt.hash(password, salt);
+      await UserModel.findByIdAndUpdate(req.user._id, {
+        $set: { password: newHashPassword },
+      });
+      res.send({
+        status: "success",
+        message: "Password changed succesfully",
+      });
+    }
+  } else {
+    res.send({ status: "failed", message: "All Fields are Required" });
+  }
+};
+
+export { userRegistration, userLogin, changeUserPassword };
