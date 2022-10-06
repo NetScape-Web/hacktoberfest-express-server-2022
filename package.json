@@ -27,10 +27,12 @@
   },
   "homepage": "https://github.com/NetScape-Web/hacktoberfest-express-server-2022#readme",
   "dependencies": {
-    "express": "^4.18.1"
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.1",
+    "mongoose": "^6.6.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
   }
 }
-
