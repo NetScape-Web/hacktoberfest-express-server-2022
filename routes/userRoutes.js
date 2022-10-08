@@ -7,7 +7,7 @@ import {
 import isValidUser from "../middlewares/authMiddleware.js";
 
 const router = express.Router();
-
+console.log("hitting api/user");
 router.get("/", (req, res, next) => {
   return res.status(200).json({
     message: "User route is working...",
