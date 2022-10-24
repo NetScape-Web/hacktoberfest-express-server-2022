@@ -2,10 +2,26 @@ import mongoose from "mongoose";
 
 // Defining Schema
 const recordSchema = new mongoose.Schema({
-  name: { type: String, required: true, trim: true },
-  fatherName: { type: String, required: true, trim: true },
-  address: { type: String, required: true, trim: true },
-  mobile: { type: String, required: true, trim: true },
+  name: {
+    type: String,
+    required: [true, "A record must have a name"],
+    trim: true,
+  },
+  fatherName: {
+    type: String,
+    required: [true, "A record must have a fatherName"],
+    trim: true,
+  },
+  address: {
+    type: String,
+    required: [true, "A record must have an address"],
+    trim: true,
+  },
+  mobile: {
+    type: String,
+    required: [true, "A record must have a mobile"],
+    trim: true,
+  },
   imei: { type: String, required: false, trim: true },
   fir: { type: String, required: false, trim: true },
   description: { type: String, required: false, trim: true },
