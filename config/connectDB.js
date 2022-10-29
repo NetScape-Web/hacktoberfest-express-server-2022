@@ -3,7 +3,12 @@ import mongoose from "mongoose";
 const connectDB = async (DATABASE_URL) => {
   try {
     const DB_OPTIONS = {
-      dbName: "doju",
+      user: process.env.MONGO_USER,
+      pass: process.env.MONGO_PASS,
+      dbname: "doju",
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      autoIndex: true,
     };
     await mongoose.connect(DATABASE_URL, DB_OPTIONS);
     console.log("Database Connected Successfully...");
